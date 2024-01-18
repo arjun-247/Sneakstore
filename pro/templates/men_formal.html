@@ -1,0 +1,154 @@
+{% extends 'index.html' %}
+{% load static %}
+
+				 
+					
+		{% block body %}
+		<div class="breadcrumbs">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<p class="bread"><span><a href="{% url 'home' %}">Home</a></span> / <span>Men</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="breadcrumbs-two">
+			<div class="container">
+				<div class="row">
+					<div class="col" >
+						<div class="breadcrumbs-img" style="background-image: url({% static 'images/images/mencr.jpg' %});">
+							<!-- <h1>Men's</h1> -->
+						</div>
+						<div class="menu text-center " style="background-color: rgb(51, 37, 37);">
+							<p><a href="{% url 'men' %}">New Arrivals</a> <a href="{% url 'men' %}">Best Sellers</a> <a href="{% url 'men' %}">Sale</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="colorlib-featured">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 text-center">
+						<div class="featured">
+							<div class="featured-img featured-img-2" style="background-image: url({% static 'images/images/casualcrsl.webp' %});">
+								<h2>Casuals</h2>
+								<p><a href="{% url 'men_casual' %}" class="btn btn-outline-light btn-sm">Shop now</a></p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4 text-center">
+						<div class="featured">
+							<div class="featured-img featured-img-2" style="background-image: url({% static 'images/images/formalscrsl.jpeg' %});">
+								<h2 >Formals</h2>
+								<p><a href="{% url 'men_formal' %}" class="btn btn-outline-light btn-sm">Shop now</a></p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-4 text-center">
+						<div class="featured">
+							<div class="featured-img featured-img-2" style="background-image: url(https://www.timberland.com/content/publish/caas/v1/media/421396/data/b73c2d7d9b253459ce6c4c7f7cd4ea39/010524-linked-card-right-hp-d.jpg?);">
+								<h2>Boots</h2><!--{% static 'images/images/boots men.avif' %}-->
+								<p><a href="{% url 'men_boots' %}" class="btn btn-outline-light btn-sm">Shop now</a></p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-8 text-center">
+						<div class="featured">
+							<div class="featured-img featured-img-2" style="background-image: url({% static 'images/images/aj1.jpg' %});">
+								<h2 >Sneakers</h2>
+								<p><a href="{% url 'men_sneaker' %}" class="btn btn-outline-light btn-sm">Shop now</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="colorlib-product">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
+						<h2>Formal Shoes</h2>
+					</div>
+				</div>
+				
+
+				<div class="row" > 
+
+					<!-- {% comment %} {{result}} {% endcomment %} -->
+					{% for i in result %}
+					{% if i.gender == "men" and i.category == "formal" %}
+
+					<div class="col-lg-4 col-md-3 col-sm-2 ">
+						<a href="{% url 'details' i.pk %}" class="text-decoration-none text-dark" >
+						<div class="card my-3" style="width: 100%; height: 100%; border: 0cap; ">
+							<img src="{{i.image.url}}" class="card-img-top w-100 " alt="..." >
+							<div class="card-body">
+								<!-- <h5 class="card-title" id="brand" name="brand">{{i.brand}}</h5> -->
+								<h5 class="card-title text-center" id="name" name="name">{{i.name}}</h5>
+								<!-- <p style="font-size: smaller;"></p> -->
+								<p class="card-text text-center" id="price" name="price">MRP:₹ {{i.price}}.00</p>
+								<!-- <a href="https://m.imdb.com/title/tt1055369/?ref_=tt_sims_tt_i_1" class="btn btn-outline-danger">ADD TO CART</a> -->
+								<!-- <a href="https://m.imdb.com/title/tt1055369/?ref_=tt_sims_tt_i_1"
+									class="btn btn-outline-warning">Shop Now</a> -->
+							</div>
+						</div></a>
+					</div>
+					{% endif %}
+					{% endfor %}
+				</div>
+
+
+
+
+
+				<!-- <div class="row">
+					<div class="col-md-12 text-center">
+						<div class="block-27">
+		               <ul>
+			               <li><a href="#"><i class="ion-ios-arrow-back"></i></a></li>
+		                  <li class="active"><span>1</span></li>
+		                  <li><a href="#">2</a></li>
+		                  <li><a href="#">3</a></li>
+		                  <li><a href="#">4</a></li>
+		                  <li><a href="#">5</a></li>
+		                  <li><a href="#"><i class="ion-ios-arrow-forward"></i></a></li>
+		               </ul>
+		            </div>
+					</div>
+				</div> -->
+			</div>
+		</div>
+<!-- 
+		<div class="colorlib-partner">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
+						<h2>Trusted Partners</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col partner-col text-center">
+						<img src="images/brand-1.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
+					</div>
+					<div class="col partner-col text-center">
+						<img src="images/brand-2.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
+					</div>
+					<div class="col partner-col text-center">
+						<img src="images/brand-3.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
+					</div>
+					<div class="col partner-col text-center">
+						<img src="images/brand-4.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
+					</div>
+					<div class="col partner-col text-center">
+						<img src="images/brand-5.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
+					</div>
+				</div>
+			</div>
+		</div> -->
+{% endblock %}
+		

@@ -1,0 +1,139 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+<div class="colorlib-product">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 text-center">
+                <div class="featured">
+                    <a href="{% url 'men' %}" class="featured-img"
+                        style="background-image: url({% static 'images/images/forhim.webp' %});"></a>
+                    <div class="desc">
+                        <h2><a href="{% url 'men' %}">Men's Collection</a></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 text-center">
+                <div class="featured">
+                    <a href="{% url 'women' %}" class="featured-img"
+                        style="background-image: url({% static 'images/images/carousel1.jpeg' %});"></a>
+                    <div class="desc">
+                        <h2><a href="{% url 'women' %}">Women's Collection</a></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="colorlib-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 offset-sm-2 text-center colorlib-heading">
+                <h2>Our Products</h2>
+            </div>
+        </div>
+        <div class="row row-pb-md">
+            <div class="row" > 
+
+                <!-- {% comment %} {{result}} {% endcomment %} -->
+                {% for i in result %}
+                {% if i.sale == "yes"%}
+
+                <div class="col-lg-4 col-md-3 col-sm-2 ">
+                    <a href="{% url 'details' i.pk %}" class="text-decoration-none text-dark" >
+                    <div class="card my-3" style="width: 100%; height: 100%; border: 0cap; ">
+                        <img src="{{i.image.url}}" class="card-img-top w-100 " alt="..." >
+                        <div class="card-body">
+                            <!-- <h5 class="card-title" id="brand" name="brand">{{i.brand}}</h5> -->
+                            <h5 class="card-title text-center" id="name" name="name">{{i.name}}</h5>
+                            <!-- <p style="font-size: smaller;"></p> -->
+                            <p class="card-text text-center" id="price" name="price">MRP:₹ {{i.price}}.00</p>
+                            <!-- <a href="https://m.imdb.com/title/tt1055369/?ref_=tt_sims_tt_i_1" class="btn btn-outline-danger">ADD TO CART</a> -->
+                            <!-- <a href="https://m.imdb.com/title/tt1055369/?ref_=tt_sims_tt_i_1"
+                                class="btn btn-outline-warning">Shop Now</a> -->
+                        </div>
+                    </div></a>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+                {% for i in result %}
+                {% if i.sale == "no"%}
+
+                <div class="col-lg-4 col-md-3 col-sm-2 ">
+                    <a href="" class="text-decoration-none text-dark" >
+                    <div class="card my-3" style="width: 100%; height: 100%; border: 0cap; ">
+                        <img src="{{i.image.url}}" class="card-img-top w-100 " alt="..." >
+                        <div class="card-body">
+                            <!-- <h5 class="card-title" id="brand" name="brand">{{i.brand}}</h5> -->
+                            <h5 class="card-title text-center" id="name" name="name">{{i.name}}</h5>
+                            <!-- <p style="font-size: smaller;"></p> -->
+                            <p class="card-text text-center" id="price" name="price">MRP:₹ {{i.price}}.00</p>
+                            <!-- <a href="https://m.imdb.com/title/tt1055369/?ref_=tt_sims_tt_i_1" class="btn btn-outline-danger">ADD TO CART</a> -->
+                            <!-- <a href="https://m.imdb.com/title/tt1055369/?ref_=tt_sims_tt_i_1"
+                                class="btn btn-outline-warning">Shop Now</a> -->
+                        </div>
+                    </div></a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <!-- {% for i in result %}
+                    {% if i.brand == "Nike" %}
+             <div class="col-lg-3 mb-4 text-center">
+                <div class="product-entry border">
+                    <a href="#" class="prod-img">
+                        <img src="{{i.image.url}}" class="img-fluid" alt="Free html5 bootstrap 4 template">
+                    </a>
+                    <div class="desc">
+                        <h2><a href="#">{{i.name}}</a></h2>
+                        <span class="price">{{i.price}}</span>
+                    </div>
+                </div>
+                    {% endif %}
+                {% endfor %} -->
+            
+            
+        </div>
+    </div>
+
+
+    <!-- <div class="row" >
+        <div class="col-md-12 text-center" >
+            <p><a href="#" class="btn btn-primary btn-lg">Shop All Products</a></p>
+        </div>
+    </div> -->
+
+    <div class="colorlib-partner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
+                    <h2>Trusted Partners</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col partner-col text-center">
+                    <img src="{% static 'images/brand-1.jpg' %}" class="img-fluid"
+                        alt="Free html4 bootstrap 4 template">
+                </div>
+                <div class="col partner-col text-center">
+                    <img src="{% static 'images/brand-2.jpg' %}" class="img-fluid"
+                        alt="Free html4 bootstrap 4 template">
+                </div>
+                <div class="col partner-col text-center">
+                    <img src="{% static 'images/brand-3.jpg' %}" class="img-fluid"
+                        alt="Free html4 bootstrap 4 template">
+                </div>
+                <div class="col partner-col text-center">
+                    <img src="{% static 'images/brand-4.jpg' %}" class="img-fluid"
+                        alt="Free html4 bootstrap 4 template">
+                </div>
+                <div class="col partner-col text-center">
+                    <img src="{% static 'images/brand-5.jpg' %}" class="img-fluid"
+                        alt="Free html4 bootstrap 4 template">
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
