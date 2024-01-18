@@ -173,4 +173,6 @@ def checkout(request):
     return render(request,'checkout.html',{'cart_items': cart_items, 'total_price': total_price,'grand_total':grand_total})
 
 def order_complete(request):
+    cart_items = CartItem.objects.filter(user=request.user)
+    cart_items.delete()
     return render(request,'order-complete.html')
