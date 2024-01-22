@@ -35,6 +35,7 @@
 			</div>
 		</div>
 		<div class="row row-pb-lg">
+			{% if cart_items %}
 			<div class="col-md-12">
 				<div class="product-name d-flex">
 					<div class="one-forth text-left px-4">
@@ -53,6 +54,7 @@
 						<span>Remove</span>
 					</div>
 				</div>
+				{% endif %}
 				{% for item in cart_items %}
 				<div class="product-cart d-flex">
 					<div class="one-forth">
@@ -86,7 +88,7 @@
 					</div>
 				</div>
 				{% empty %}
-				<p>Your cart is empty.</p>
+				<p class="text-center">Your cart is empty.</p>
 				{% endfor %}
 
 				<!-- <div class="product-cart d-flex">
@@ -154,6 +156,7 @@
 		<div class="row row-pb-lg">
 			<div class="col-md-12">
 				<div class="total-wrap">
+					
 					<div class="row">
 						<div class="col-sm-8">
 							<!-- <form action="#"> -->
@@ -161,18 +164,18 @@
 								<!-- <div class="col-sm-9">
 												<input type="text" name="quantity" class="form-control input-number" placeholder="Your Coupon Number...">
 											</div> -->
-								<div class="col-sm-6">
+								<div class="col-sm-12 text-center">
 									{% if cart_items %}
 									<a href="{% url 'checkout' %}" class="btn btn-outline-dark">BUY NOW</a>
 									{% else %}
-									<a href="{% url 'collection' %}" class="btn btn-outline-dark">SHOP COLLECTION</a>
+									<a href="{% url 'collection' %}" class="btn btn-outline-dark ">SHOP COLLECTION</a>
 									{% endif %}
 									
 								</div>
 							</div>
 							<!-- </form> -->
 						</div>
-
+						{% if cart_items %}
 						<div class="col-sm-4 text-center">
 							<div class="total">
 								<div class="sub">
@@ -191,6 +194,7 @@
 									<p><span><strong>Total:</strong></span> <span>₹ 00.00</span></p>
 									{% endif %}
 								</div>
+							{% endif %}
 
 							</div>
 						</div>
@@ -200,7 +204,7 @@
 			</div>
 		</div>
 
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
 				<h2>Related Products</h2>
 			</div>
@@ -250,7 +254,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 </div>
 

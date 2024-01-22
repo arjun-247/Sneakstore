@@ -1,37 +1,49 @@
 {% extends 'index.html' %}
 {% load static %}
 
-				 
-					
-		{% block body %}
 
-		<div class="breadcrumbs">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<p class="bread"><span><a href="{% url 'home' %}">Home</a></span> / <span>About</span></p>
-					</div>
+
+{% block body %}
+
+<div class="breadcrumbs">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<p class="bread"><span><a href="{% url 'home' %}">Home</a></span> / <span>About</span></p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="colorlib-about">
+	<div class="container">
+		<div class="row row-pb-lg">
+			<div class="col-sm-6 mb-3">
+				<div class="video colorlib-video" style="background-image: url({% static 'images/about.jpg' %});">
+					<a href="https://vimeo.com/channels/staffpicks/93951774" class="popup-vimeo"><i
+							class="icon-play3"></i></a>
+					<div class="overlay"></div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="about-wrap">
+					<h2>SneakStore</h2>
+					<p>As a community-first sneaker and streetwear boutique in India, we aim to be zeitgeists. With our
+						culture-to-commerce approach, we endeavour to be at the forefront of movements rooted in music,
+						art, fashion and more.
+
+						Through our platform and reach, we champion inclusivity, individuality and creative expression.
+						Collaborating with creators from all over India and across the world, we create impactful
+						stories and editorial content.</p>
+					<p>The design of our apparel collections pays respect to the culture we come from. This collision of
+						tradition and contemporary silhouettes speaks to our intention of being a streetwear brand from
+						India - connected to our roots, relevant in the now, but creating the future.
+
+						Since our inception in 2016, we’ve evolved from a sneaker boutique and streetwear brand to
+						become a cultural force that cultivates and shapes both sneakers and pop culture.</p>
 				</div>
 			</div>
 		</div>
-		<div class="colorlib-about">
-			<div class="container">
-				<div class="row row-pb-lg">
-					<div class="col-sm-6 mb-3">
-						<div class="video colorlib-video" style="background-image: url({% static 'images/about.jpg' %});">
-							<a href="https://vimeo.com/channels/staffpicks/93951774" class="popup-vimeo"><i class="icon-play3"></i></a>
-							<div class="overlay"></div>
-						</div>
-					</div>
-					<div class="col-sm-6">
-						<div class="about-wrap">
-							<h2>Footwear the leading eCommerce Store around the Globe</h2>
-							<p>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
-							<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+	</div>
+</div>
 
-		{% endblock %}
+{% endblock %}
